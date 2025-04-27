@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Google } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 
 const Login = () => {
   return (
@@ -12,7 +12,7 @@ const Login = () => {
         </CardHeader>
         <CardContent className="space-y-4">
           <Button className="w-full" variant="outline">
-            <Google className="mr-2 h-4 w-4" />
+            <Mail className="mr-2 h-4 w-4" />
             Continue with Google
           </Button>
           <Button className="w-full" variant="outline">

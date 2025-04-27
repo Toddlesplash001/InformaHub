@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { LogIn, Home, BookmarkCheck, Category } from "lucide-react";
+import { LogIn, Home, BookmarkCheck, Grid } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
             </Link>
             <Link to="/categories">
               <Button variant="ghost" size="icon">
-                <Category className="h-5 w-5" />
+                <Grid className="h-5 w-5" />
               </Button>
             </Link>
             <Link to="/bookmarks">
