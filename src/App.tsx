@@ -8,26 +8,35 @@ import Navbar from "./components/Navbar";
 import DefaultPage from "./pages/DefaultPage";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import MobileNav from "./components/MobileNav";
+import { useIsMobile } from "./hooks/use-mobile";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="min-h-screen bg-gray-50">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<DefaultPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const isMobile = useIsMobile();
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <div className="min-h-screen bg-gray-50">
+            {!isMobile && <Navbar />}
+            <div className={`${isMobile ? 'pb-16' : ''}`}>
+              <Routes>
+                <Route path="/" element={<DefaultPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+            {isMobile && <MobileNav />}
+          </div>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

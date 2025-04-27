@@ -1,9 +1,11 @@
 
 import { useEffect, useState } from 'react';
 import NewsCard, { NewsItem } from '../components/NewsCard';
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const DefaultPage = () => {
   const [trendingNews, setTrendingNews] = useState<NewsItem[]>([]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Simulated trending news data
@@ -28,9 +30,9 @@ const DefaultPage = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <h1 className="text-3xl font-bold mb-8">Trending News</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${isMobile ? 'py-4' : 'py-8'}`}>
+      <h1 className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold ${isMobile ? 'mb-4' : 'mb-8'}`}>Trending News</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {trendingNews.map((news) => (
           <NewsCard key={news.id} news={news} />
         ))}
