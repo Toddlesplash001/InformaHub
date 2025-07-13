@@ -16,6 +16,14 @@ const config: CapacitorConfig = {
       keystoreAlias: undefined,
       keystoreAliasPassword: undefined,
     }
+  },
+  ios: {
+    scheme: 'TrendSpot News Hub'
+  },
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 0
+    }
   }
 };
 
