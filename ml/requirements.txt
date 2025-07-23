@@ -1,0 +1,22 @@
+# FastAPI app framework
+fastapi
+uvicorn
+
+# Data processing
+pandas
+numpy
+
+# Machine Learning
+scikit-learn
+tensorflow
+
+# NLP & preprocessing (if used for article content)
+nltk
+spacy
+
+# Similarity & recommendation
+scipy
+
+# Web scraping and data sources (if applicable)
+beautifulsoup4
+requests
